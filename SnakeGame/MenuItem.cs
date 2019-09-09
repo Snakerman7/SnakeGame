@@ -1,20 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NConsoleGraphics;
+﻿using NConsoleGraphics;
+using System;
 
 namespace SnakeGame
 {
-    class MenuItem : IGameObject
+    class MenuItem : GameObject
     {
-        public void Render(ConsoleGraphics graphics)
+        private MenuItemType _type;
+        private string _text;
+        public bool IsSelected { get; set; }
+
+        public MenuItemType Type
         {
-            throw new NotImplementedException();
+            get => _type;
         }
 
-        public void Update(GameEngine engine)
+        public MenuItem(MenuItemType type, string text)
+        {
+            _type = type;
+            _text = text;
+        }
+
+        public override void Render(ConsoleGraphics graphics)
+        {
+            if (IsSelected)
+            {
+                graphics.DrawString(_text, "Broadway", 0xff000000, Position.X, Position.Y);
+            }
+            else
+            {
+                graphics.DrawString(_text, "Broadway", 0xffaaaaaa, Position.X, Position.Y);
+            }
+        }
+
+        public override void Update(GameEngine engine)
         {
             throw new NotImplementedException();
         }

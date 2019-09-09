@@ -1,18 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
+﻿using GenericCollections;
 using NConsoleGraphics;
-using GenericCollections;
 
 namespace SnakeGame
 {
-    public class Snake : IGameObject
+    public class Snake : GameObject
     {
         private LinkedList<SnakePart> _parts;
         private MoveDirection _direction;
-        public Point HeadPosition { get; private set; }
 
         public Snake()
         {
@@ -55,9 +49,9 @@ namespace SnakeGame
         public bool CheckCollision(Point p)
         {
             var bodyPart = _parts.First;
-            while(bodyPart != null)
+            while (bodyPart != null)
             {
-                if(bodyPart.Value.Position.Equals(p))
+                if (bodyPart.Value.Position.Equals(p))
                 {
                     return true;
                 }
@@ -66,28 +60,31 @@ namespace SnakeGame
             return false;
         }
 
-        public void Render(ConsoleGraphics graphics)
+        public override void Render(ConsoleGraphics graphics)
         {
             var snake = _parts.ToArray();
-            foreach(var part in snake)
+            foreach (var part in snake)
             {
                 part.Render(graphics);
             }
         }
 
-        public void Update(GameEngine engine)
+        public override void Update(GameEngine engine)
         {
             MoveDirection prevMove = _direction;
             if (Input.IsKeyDown(Keys.DOWN) && _direction != MoveDirection.Up)
             {
                 _direction = MoveDirection.Down;
-            } else if(Input.IsKeyDown(Keys.UP) && _direction != MoveDirection.Down)
+            }
+            else if (Input.IsKeyDown(Keys.UP) && _direction != MoveDirection.Down)
             {
                 _direction = MoveDirection.Up;
-            } else if(Input.IsKeyDown(Keys.LEFT) && _direction != MoveDirection.Right)
+            }
+            else if (Input.IsKeyDown(Keys.LEFT) && _direction != MoveDirection.Right)
             {
                 _direction = MoveDirection.Left;
-            } else if(Input.IsKeyDown(Keys.RIGHT) && _direction != MoveDirection.Left)
+            }
+            else if (Input.IsKeyDown(Keys.RIGHT) && _direction != MoveDirection.Left)
             {
                 _direction = MoveDirection.Right;
             }
@@ -108,7 +105,7 @@ namespace SnakeGame
                     {
                         _parts.First.Value.Type = SnakePartType.BodyLeftUpOrDownRight;
                     }
-                    else if(prevMove == MoveDirection.Right)
+                    else if (prevMove == MoveDirection.Right)
                     {
                         _parts.First.Value.Type = SnakePartType.BodyRightUpOrDownLeft;
                     }
@@ -154,10 +151,10 @@ namespace SnakeGame
             }
             var p = _parts.First.Value.Position;
             tail.Position = new Point(p.X + dx, p.Y + dy);
-            HeadPosition = tail.Position;
-            if (CheckCollision(HeadPosition))
+            Position = tail.Position;
+            if (CheckCollision(Position))
             {
-                engine.StopCurrentScene();
+                engine.PrevScene();
             }
             _parts.AddFirst(tail);
         }

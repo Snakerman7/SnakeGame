@@ -1,16 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NConsoleGraphics;
-using GenericCollections;
+﻿using NConsoleGraphics;
 
 namespace SnakeGame
 {
     public abstract class Scene : IGameObject
     {
         protected bool _isActive = false;
-        
+
         public void Start()
         {
             _isActive = true;

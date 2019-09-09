@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Food.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="GUI.cs" />
     <Compile Include="MainMenuScene.cs" />
     <Compile Include="MenuItem.cs" />
+    <Compile Include="ResourcesManager.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="IGameObject.cs" />

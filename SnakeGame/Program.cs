@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NConsoleGraphics;
+﻿using NConsoleGraphics;
+using System;
 
 namespace SnakeGame
 {
@@ -11,8 +7,8 @@ namespace SnakeGame
     {
         static void Main(string[] args)
         {
-            Console.WindowWidth = 100;
-            Console.WindowHeight = 35;
+            Console.WindowWidth = 74;
+            Console.WindowHeight = 30;
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             Console.BackgroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
@@ -21,12 +17,11 @@ namespace SnakeGame
             ConsoleGraphics graphics = new ConsoleGraphics();
 
             GameEngine engine = new GameEngine(graphics);
-            //GameScene scene = new GameScene(graphics.ClientWidth, graphics.ClientHeight);
-            MainMenuScene scene = new MainMenuScene(graphics.ClientWidth, graphics.ClientHeight);
-            //scene.AddObject(new Food() { Position = new Point(160, 160) });
+            ResourcesManager.GetInstance().LoadResources(graphics);
+            MainMenuScene scene = new MainMenuScene();
             engine.ChangeScene(scene);
+
             engine.Start();
-            
         }
     }
 }

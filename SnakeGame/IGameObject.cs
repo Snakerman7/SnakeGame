@@ -1,12 +1,11 @@
 ﻿using NConsoleGraphics;
 
-namespace SnakeGame {
+namespace SnakeGame
+{
+    public interface IGameObject
+    {
+        void Render(ConsoleGraphics graphics);
 
-  public interface IGameObject {
-
-    void Render(ConsoleGraphics graphics);
-
-    void Update(GameEngine engine);
-
-  }
+        void Update(GameEngine engine);
+    }
 }

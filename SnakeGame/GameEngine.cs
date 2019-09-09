@@ -1,7 +1,6 @@
-﻿using System;
+﻿using GenericCollections;
 using NConsoleGraphics;
 using System.Threading;
-using GenericCollections;
 
 namespace SnakeGame
 {
@@ -18,15 +17,18 @@ namespace SnakeGame
 
         public void NextScene(Scene nextScene)
         {
-            _curScene.Stop();
-            _prevScenes.Puch(_curScene);
+            if (_curScene != null)
+            {
+                _curScene.Stop();
+                _prevScenes.Puch(_curScene);
+            }
             _curScene = nextScene;
             _curScene.Start();
         }
 
         public void PrevScene()
         {
-            if(_prevScenes.Count > 0)
+            if (_prevScenes.Count > 0)
             {
                 _curScene.Stop();
                 _curScene = _prevScenes.Pop();

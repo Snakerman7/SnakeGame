@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NConsoleGraphics;
+﻿using NConsoleGraphics;
 
 namespace SnakeGame
 {
-    public class Food : IGameObject
+    public class Food : GameObject
     {
-        public Point Position { get; set; }
         private ConsoleImage _image;
 
-        public void Render(ConsoleGraphics graphics)
+        public Food()
         {
-            if(_image == null)
-            {
-                _image = graphics.LoadImage("images/snake.png");
-            }
+            _image = ResourcesManager.GetInstance().SnakeImage;
+        }
+
+        public override void Render(ConsoleGraphics graphics)
+        {
             graphics.DrawImagePart(_image, 32, 48, 16, 16, Position.X, Position.Y);
         }
 
-        public void Update(GameEngine engine)
+        public override void Update(GameEngine engine)
         {
-            
+
         }
     }
 }

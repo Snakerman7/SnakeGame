@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NConsoleGraphics;
+﻿using NConsoleGraphics;
 
 namespace SnakeGame
 {
@@ -26,29 +21,24 @@ namespace SnakeGame
         Tail
     }
 
-    public class SnakePart : IGameObject
+    public class SnakePart : GameObject
     {
-        public Point Position { get; set; }
         private int _size;
         private ConsoleImage _image;
         public MoveDirection Direction { get; set; }
         public SnakePartType Type { get; set; }
 
-        public SnakePart(Point position= new Point(), MoveDirection dir = MoveDirection.Right, SnakePartType type = SnakePartType.Body, int size = 0)
+        public SnakePart(Point position = new Point(), MoveDirection dir = MoveDirection.Right, SnakePartType type = SnakePartType.Body, int size = 0)
         {
             _size = size;
             Position = position;
             Direction = dir;
             Type = type;
-            
+            _image = ResourcesManager.GetInstance().SnakeImage;
         }
 
-        public void Render(ConsoleGraphics graphics)
+        public override void Render(ConsoleGraphics graphics)
         {
-            if (_image == null)
-            {
-                _image = graphics.LoadImage("images/snake.png");
-            }
             switch (Type)
             {
                 case SnakePartType.Tail:
@@ -56,11 +46,11 @@ namespace SnakeGame
                     {
                         graphics.DrawImagePart(_image, 32, 16, _size, _size, Position.X, Position.Y);
                     }
-                    else if(Direction == MoveDirection.Up)
+                    else if (Direction == MoveDirection.Up)
                     {
                         graphics.DrawImagePart(_image, 0, 16, _size, _size, Position.X, Position.Y);
                     }
-                    else if(Direction == MoveDirection.Right)
+                    else if (Direction == MoveDirection.Right)
                     {
                         graphics.DrawImagePart(_image, 16, 16, _size, _size, Position.X, Position.Y);
                     }
@@ -112,9 +102,9 @@ namespace SnakeGame
             }
         }
 
-        public void Update(GameEngine engine)
+        public override void Update(GameEngine engine)
         {
-            
+
         }
     }
 }
