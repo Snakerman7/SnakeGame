@@ -87,10 +87,10 @@ namespace SnakeGame
             {
                 if (obj.Position.Equals(p))
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
 
         private bool CheckCollisionWithObjects()
@@ -128,7 +128,7 @@ namespace SnakeGame
                 int y = _numberGenerator.Next(_gameFieldHeight);
                 y = y - y % 16;
                 p = new Point(x, y);
-            } while (_player.CheckCollision(p) && CheckPoint(p));
+            } while (_player.CheckCollision(p) || CheckPoint(p));
             return p;
         }
     }
