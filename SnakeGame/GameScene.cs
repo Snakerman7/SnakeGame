@@ -28,8 +28,8 @@ namespace SnakeGame
         {
             if (!_isInitialize)
             {
-                _gameFieldHeight = graphics.ClientHeight - 35;
-                _gameFieldWidth = graphics.ClientWidth;
+                _gameFieldHeight = graphics.ClientHeight - (graphics.ClientHeight % 16) - 35;
+                _gameFieldWidth = graphics.ClientWidth - graphics.ClientWidth % 16;
                 _gui.Position = new Point(0, _gameFieldHeight);
             }
             graphics.FillRectangle(0xff155c12, 0, 0, _gameFieldWidth, _gameFieldHeight);
@@ -60,11 +60,11 @@ namespace SnakeGame
         private bool CheckCollisionWithBorders()
         {
             var point = _player.Position;
-            if (point.X < 0 || point.X > _gameFieldWidth)
+            if (point.X < 0 || point.X >= _gameFieldWidth)
             {
                 return true;
             }
-            if (point.Y < 0 || point.Y > _gameFieldHeight)
+            if (point.Y < 0 || point.Y >= _gameFieldHeight)
             {
                 return true;
             }
