@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NConsoleGraphics;
+﻿using NConsoleGraphics;
 
 namespace SnakeGame
 {
@@ -18,7 +13,7 @@ namespace SnakeGame
 
         public override void Render(ConsoleGraphics graphics)
         {
-            for(int i = 0; i < _bestScores.Length; i++)
+            for (int i = 0; i < _bestScores.Length; i++)
             {
                 graphics.DrawString($"{i + 1} place   :   {_bestScores[i]}", "Broadway", 0xff000000, 50, i * 50);
             }

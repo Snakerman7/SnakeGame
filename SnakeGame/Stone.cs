@@ -15,7 +15,7 @@ namespace SnakeGame
 
         public override void Update(GameEngine engine)
         {
-            
+
         }
     }
 }

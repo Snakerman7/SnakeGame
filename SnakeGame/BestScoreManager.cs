@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnakeGame
 {
@@ -38,9 +35,9 @@ namespace SnakeGame
                 LoadScores();
             }
             bool isScoresChanged = false;
-            for(int i = 0; i < _bestScores.Length; i++)
+            for (int i = 0; i < _bestScores.Length; i++)
             {
-                if(_bestScores[i] < score)
+                if (_bestScores[i] < score)
                 {
                     isScoresChanged = true;
                     int temp = score;
@@ -64,9 +61,9 @@ namespace SnakeGame
                     text = sr.ReadToEnd();
                 }
                 string[] bestScores = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                for(int i = 0; i < bestScores.Length; i++)
+                for (int i = 0; i < bestScores.Length; i++)
                 {
-                    if(int.TryParse(bestScores[i], out var res))
+                    if (int.TryParse(bestScores[i], out var res))
                     {
                         _bestScores[i] = res;
                     }
@@ -80,9 +77,9 @@ namespace SnakeGame
 
         private void SaveScores()
         {
-            using(StreamWriter sw = File.CreateText(FILE_NAME))
+            using (StreamWriter sw = File.CreateText(FILE_NAME))
             {
-                for(int i = 0; i < _bestScores.Length; i++)
+                for (int i = 0; i < _bestScores.Length; i++)
                 {
                     sw.WriteLine(_bestScores[i]);
                 }
@@ -91,7 +88,7 @@ namespace SnakeGame
 
         public static BestScoreManager GetInstance()
         {
-            if(_instance == null)
+            if (_instance == null)
             {
                 _instance = new BestScoreManager();
             }

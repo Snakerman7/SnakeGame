@@ -60,7 +60,7 @@ namespace SnakeGame
                 EndGameScene scene = new EndGameScene("You lose", _gui.Scores);
                 engine.ChangeScene(scene);
             }
-            if(_gui.Scores == SCORES_FOR_WIN)
+            if (_gui.Scores == SCORES_FOR_WIN)
             {
                 EndGameScene scene = new EndGameScene("You win", _gui.Scores);
                 engine.ChangeScene(scene);
