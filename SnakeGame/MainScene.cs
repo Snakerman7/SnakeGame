@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SnakeGame
 {
-    public class GameScene : Scene
+    public class MainScene : Scene
     {
         private int _gameFieldWidth;
         private int _gameFieldHeight;
@@ -13,7 +13,7 @@ namespace SnakeGame
         private GUI _gui;
         private List<GameObject> _objects = new List<GameObject>();
 
-        public GameScene()
+        public MainScene()
         {
             _player = new Snake();
             _gui = new GUI();

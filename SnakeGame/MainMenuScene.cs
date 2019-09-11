@@ -45,7 +45,7 @@ namespace SnakeGame
                 switch (type)
                 {
                     case MenuItemType.StartNewGame:
-                        GameScene scene = new GameScene();
+                        MainScene scene = new MainScene();
                         scene.AddObject(new Food() { Position = new Point(160, 160) });
                         scene.AddObject(new Food() { Position = new Point(176, 160) });
                         engine.NextScene(scene);

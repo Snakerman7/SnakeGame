@@ -60,7 +60,7 @@
     <Compile Include="Scene.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="IGameObject.cs" />
-    <Compile Include="GameScene.cs" />
+    <Compile Include="MainScene.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
