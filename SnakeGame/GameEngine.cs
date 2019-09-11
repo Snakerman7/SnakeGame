@@ -55,9 +55,6 @@ namespace SnakeGame
                 // Game Loop
                 _curScene.Update(this);
 
-                //objects.AddRange(tempObjects);
-                //tempObjects.Clear();
-
                 // clearing screen before painting new frame
                 _graphics.FillRectangle(0xFFFFFFFF, 0, 0, _graphics.ClientWidth, _graphics.ClientHeight);
                 _curScene.Render(_graphics);
