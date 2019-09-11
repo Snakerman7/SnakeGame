@@ -8,7 +8,7 @@ namespace SnakeGame
     {
         StartNewGame,
         BestScores,
-        Quit,
+        Exit,
         EasyLevel,
         HardLevel
     }
@@ -128,7 +128,7 @@ namespace SnakeGame
             List<MenuItem> items = new List<MenuItem>();
             items.Add(new MenuItem(MenuItemType.StartNewGame, "Start New Game") { IsSelected = true, Position = new Point(50, 50) });
             items.Add(new MenuItem(MenuItemType.BestScores, "Best Scores") { Position = new Point(50, 100) });
-            items.Add(new MenuItem(MenuItemType.Quit, "Quit") { Position = new Point(50, 150) });
+            items.Add(new MenuItem(MenuItemType.Exit, "Exit") { Position = new Point(50, 150) });
             return items;
         }
 
