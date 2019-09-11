@@ -7,9 +7,11 @@ namespace SnakeGame
     {
         private LinkedList<SnakePart> _parts;
         private MoveDirection _direction;
+        public bool ItselfCollision { get; private set; }
 
         public Snake()
         {
+            ItselfCollision = false;
             _direction = MoveDirection.Right;
             _parts = new LinkedList<SnakePart>();
             _parts.AddFirst(new SnakePart(type: SnakePartType.Tail, position: new Point(0, 0), dir: MoveDirection.Right));
@@ -152,10 +154,7 @@ namespace SnakeGame
             var p = _parts.First.Value.Position;
             tail.Position = new Point(p.X + dx, p.Y + dy);
             Position = tail.Position;
-            if (CheckCollision(Position))
-            {
-                engine.PrevScene();
-            }
+            ItselfCollision = CheckCollision(Position);
             _parts.AddFirst(tail);
         }
     }

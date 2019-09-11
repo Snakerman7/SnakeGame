@@ -55,7 +55,7 @@ namespace SnakeGame
                 }
                 _player.Update(engine);
             }
-            if (CheckCollisionWithObjects() || CheckCollisionWithBorders())
+            if (_player.ItselfCollision || CheckCollisionWithObjects() || CheckCollisionWithBorders())
             {
                 EndGameScene scene = new EndGameScene("You lose", _gui.Scores);
                 engine.ChangeScene(scene);
