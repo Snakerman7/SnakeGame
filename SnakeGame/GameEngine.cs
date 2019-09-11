@@ -65,7 +65,7 @@ namespace SnakeGame
                 // double buffering technique is used
                 _graphics.FlipPages();
 
-                Thread.Sleep(50);
+                Thread.Sleep(70);
             }
         }
     }

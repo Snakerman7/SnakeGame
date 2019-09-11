@@ -6,6 +6,7 @@ namespace SnakeGame
 {
     public class MainScene : Scene
     {
+        private const int SCORES_FOR_WIN = 500;
         private int _gameFieldWidth;
         private int _gameFieldHeight;
         private Snake _player;
@@ -56,7 +57,13 @@ namespace SnakeGame
             }
             if (CheckCollisionWithObjects() || CheckCollisionWithBorders())
             {
-                engine.PrevScene();
+                EndGameScene scene = new EndGameScene("You lose", _gui.Scores);
+                engine.ChangeScene(scene);
+            }
+            if(_gui.Scores == SCORES_FOR_WIN)
+            {
+                EndGameScene scene = new EndGameScene("You win", _gui.Scores);
+                engine.ChangeScene(scene);
             }
         }
 

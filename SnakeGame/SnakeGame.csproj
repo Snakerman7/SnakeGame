@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BestScoreManager.cs" />
+    <Compile Include="BestScoresScene.cs" />
+    <Compile Include="EndGameScene.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GUI.cs" />

@@ -25,7 +25,7 @@ namespace SnakeGame
         {
             if (IsSelected)
             {
-                graphics.DrawString(_text, "Broadway", 0xff000000, Position.X, Position.Y);
+                graphics.DrawString(_text, "Broadway", 0xff000000, Position.X, Position.Y, 18);
             }
             else
             {

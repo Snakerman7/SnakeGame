@@ -19,14 +19,18 @@ namespace SnakeGame
         private int _width;
         private int _height;
         private int _selectedItem;
-        private bool _isKeyDown_Down;
-        private bool _isKeyUp_Down;
+        private string _helpText;
 
-        public MenuScene(int width, int height)
+        private static bool _isKeyDown_Down;
+        private static bool _isKeyUp_Down;
+        private static bool _isKeyReturn_Down;
+
+        public MenuScene(int width, int height, string helpText = "Up or Down for navigate, Enter to choose")
         {
             _selectedItem = 0;
             _width = width;
             _height = height;
+            _helpText = helpText;
         }
 
         public void AddMenuItems(List<MenuItem> items)
@@ -43,43 +47,43 @@ namespace SnakeGame
             {
                 item.Render(graphics);
             }
-            graphics.DrawString("Up or Down for navigate, Enter to choose", "Broadway", 0xFF000000, 30, _height - 30, 8);
+            graphics.DrawString(_helpText, "Broadway", 0xFF000000, 30, _height - 30, 8);
         }
 
         public override void Update(GameEngine engine)
         {
-            if (Input.IsKeyDown(Keys.RETURN))
+            if (!_isKeyReturn_Down && Input.IsKeyDown(Keys.RETURN))
             {
                 MenuItemType type = _items[_selectedItem].Type;
                 switch (type)
                 {
                     case MenuItemType.StartNewGame:
-                        MenuScene chooseLevelMenu = new MenuScene(_width, _height);
+                        MenuScene chooseLevelMenu = new MenuScene(_width, _height, "Up or Down for navigate, Enter to choose, Esc for come back");
                         chooseLevelMenu.AddMenuItems(MenuScene.GetChooseLevelItems());
                         engine.NextScene(chooseLevelMenu);
                         break;
                     case MenuItemType.BestScores:
-
+                        BestScoresScene bestScoresScene = new BestScoresScene(BestScoreManager.GetInstance().GetScores());
+                        engine.NextScene(bestScoresScene);
                         break;
                     case MenuItemType.Quit:
                         Environment.Exit(Environment.ExitCode);
                         break;
                     case MenuItemType.EasyLevel:
-                        MainScene scene1 = new MainScene(_width, _height);
-                        scene1.AddObjectToRandomPosition(new Food());
-                        engine.ChangeScene(scene1);
+                        MainScene easyLevelScene = new MainScene(_width, _height);
+                        easyLevelScene.AddObjectToRandomPosition(new Food());
+                        engine.ChangeScene(easyLevelScene);
                         break;
                     case MenuItemType.HardLevel:
-                        MainScene scene2 = new MainScene(_width, _height);
-                        scene2.AddObjectToRandomPosition(new Food());
+                        MainScene hardLevelScene = new MainScene(_width, _height);
+                        hardLevelScene.AddObjectToRandomPosition(new Food());
                         for (int i = 0; i < 10; i++)
                         {
-                            scene2.AddObjectToRandomPosition(new Stone());
+                            hardLevelScene.AddObjectToRandomPosition(new Stone());
                         }
-                        engine.ChangeScene(scene2);
+                        engine.ChangeScene(hardLevelScene);
                         break;
                 }
-
             }
             if (!_isKeyDown_Down && Input.IsKeyDown(Keys.DOWN))
             {
@@ -89,9 +93,14 @@ namespace SnakeGame
             {
                 MoveUp();
             }
+            if (Input.IsKeyDown(Keys.ESCAPE))
+            {
+                engine.PrevScene();
+            }
 
             _isKeyDown_Down = Input.IsKeyDown(Keys.DOWN);
             _isKeyUp_Down = Input.IsKeyDown(Keys.UP);
+            _isKeyReturn_Down = Input.IsKeyDown(Keys.RETURN);
         }
 
         private void MoveDown()
