@@ -1,5 +1,6 @@
 ﻿using NConsoleGraphics;
 using System;
+using System.Drawing.Text;
 
 namespace SnakeGame
 {

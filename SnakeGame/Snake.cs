@@ -12,9 +12,9 @@ namespace SnakeGame
         {
             _direction = MoveDirection.Right;
             _parts = new LinkedList<SnakePart>();
-            _parts.AddFirst(new SnakePart(type: SnakePartType.Tail, size: 16, position: new Point(0, 0), dir: MoveDirection.Right));
-            _parts.AddFirst(new SnakePart(type: SnakePartType.Body, size: 16, position: new Point(16, 0), dir: MoveDirection.Right));
-            _parts.AddFirst(new SnakePart(type: SnakePartType.Head, size: 16, position: new Point(32, 0), dir: MoveDirection.Right));
+            _parts.AddFirst(new SnakePart(type: SnakePartType.Tail, position: new Point(0, 0), dir: MoveDirection.Right));
+            _parts.AddFirst(new SnakePart(type: SnakePartType.Body, position: new Point(16, 0), dir: MoveDirection.Right));
+            _parts.AddFirst(new SnakePart(type: SnakePartType.Head, position: new Point(32, 0), dir: MoveDirection.Right));
         }
 
         public void AddPart()

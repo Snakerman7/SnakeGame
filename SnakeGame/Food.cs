@@ -4,8 +4,6 @@ namespace SnakeGame
 {
     public class Food : GameObject
     {
-        private ConsoleImage _image;
-
         public Food()
         {
             _image = ResourcesManager.GetInstance().SnakeImage;

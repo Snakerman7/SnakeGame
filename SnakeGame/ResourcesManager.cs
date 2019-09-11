@@ -14,12 +14,20 @@ namespace SnakeGame
             return _instance;
         }
 
-        private ConsoleImage _snakeGameImage;
+        private ConsoleImage _snakeImage;
+        private ConsoleImage _stoneImage;
         public ConsoleImage SnakeImage
         {
             get
             {
-                return _snakeGameImage;
+                return _snakeImage;
+            }
+        }
+        public ConsoleImage StoneImage
+        {
+            get
+            {
+                return _stoneImage;
             }
         }
         private ResourcesManager()
@@ -29,8 +37,8 @@ namespace SnakeGame
 
         public void LoadResources(ConsoleGraphics graphics)
         {
-            if (_snakeGameImage == null)
-                _snakeGameImage = graphics.LoadImage("images/snake.png");
+            _snakeImage = graphics.LoadImage("images/snake.png");
+            _stoneImage = graphics.LoadImage("images/stone.png");
         }
     }
 }

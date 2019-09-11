@@ -8,15 +8,18 @@ namespace SnakeGame
     {
         private int _gameFieldWidth;
         private int _gameFieldHeight;
-        private bool _isInitialize = false;
         private Snake _player;
         private GUI _gui;
         private List<GameObject> _objects = new List<GameObject>();
+        private Random _numberGenerator = new Random();
 
-        public MainScene()
+        public MainScene(int width, int heigth)
         {
             _player = new Snake();
             _gui = new GUI();
+            _gameFieldHeight = heigth - (heigth % 16) - 35;
+            _gameFieldWidth = width - width % 16;
+            _gui.Position = new Point(0, _gameFieldHeight);
         }
 
         public virtual void AddObject(GameObject obj)
@@ -24,14 +27,14 @@ namespace SnakeGame
             _objects.Add(obj);
         }
 
+        public void AddObjectToRandomPosition(GameObject obj)
+        {
+            obj.Position = GetFreePoint();
+            AddObject(obj);
+        }
+
         public override void Render(ConsoleGraphics graphics)
         {
-            if (!_isInitialize)
-            {
-                _gameFieldHeight = graphics.ClientHeight - (graphics.ClientHeight % 16) - 35;
-                _gameFieldWidth = graphics.ClientWidth - graphics.ClientWidth % 16;
-                _gui.Position = new Point(0, _gameFieldHeight);
-            }
             graphics.FillRectangle(0xff155c12, 0, 0, _gameFieldWidth, _gameFieldHeight);
             foreach (var obj in _objects)
             {
@@ -71,7 +74,7 @@ namespace SnakeGame
             return false;
         }
 
-        private bool CheckSpaceForNewFood(Point p)
+        private bool CheckPoint(Point p)
         {
             foreach (var obj in _objects)
             {
@@ -88,28 +91,38 @@ namespace SnakeGame
             var point = _player.Position;
             foreach (var obj in _objects)
             {
-                if (obj is Food f)
+                switch (obj)
                 {
-                    if (f.Position.Equals(point))
-                    {
-                        Random r = new Random();
-                        Point p;
-                        do
+                    case Food f:
+                        if (f.Position.Equals(point))
                         {
-                            int x = r.Next(_gameFieldWidth);
-                            x = x - x % 16;
-                            int y = r.Next(_gameFieldHeight);
-                            y = y - y % 16;
-                            p = new Point(x, y);
-                        } while (_player.CheckCollision(p) && CheckSpaceForNewFood(p));
-                        f.Position = p;
-                        _player.AddPart();
-                        _gui.Scores++;
-                    }
+                            Point p = GetFreePoint();
+                            f.Position = p;
+                            _player.AddPart();
+                            _gui.Scores++;
+                        }
+                        break;
+                    case Stone s:
+                        if (s.Position.Equals(point))
+                            return true;
+                        break;
                 }
             }
             return false;
         }
 
+        private Point GetFreePoint()
+        {
+            Point p;
+            do
+            {
+                int x = _numberGenerator.Next(_gameFieldWidth);
+                x = x - x % 16;
+                int y = _numberGenerator.Next(_gameFieldHeight);
+                y = y - y % 16;
+                p = new Point(x, y);
+            } while (_player.CheckCollision(p) && CheckPoint(p));
+            return p;
+        }
     }
 }

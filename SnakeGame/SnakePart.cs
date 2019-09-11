@@ -24,11 +24,10 @@ namespace SnakeGame
     public class SnakePart : GameObject
     {
         private int _size;
-        private ConsoleImage _image;
         public MoveDirection Direction { get; set; }
         public SnakePartType Type { get; set; }
 
-        public SnakePart(Point position = new Point(), MoveDirection dir = MoveDirection.Right, SnakePartType type = SnakePartType.Body, int size = 0)
+        public SnakePart(Point position = new Point(), MoveDirection dir = MoveDirection.Right, SnakePartType type = SnakePartType.Body, int size = 16)
         {
             _size = size;
             Position = position;
