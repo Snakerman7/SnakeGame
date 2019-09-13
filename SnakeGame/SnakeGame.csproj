@@ -63,14 +63,14 @@
     <Compile Include="ResourcesManager.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="GameEngine.cs" />
-    <Compile Include="IGameObject.cs" />
+    <Compile Include="IRenderObject.cs" />
     <Compile Include="MainScene.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Snake.cs" />
     <Compile Include="SnakePart.cs" />
-    <Compile Include="Stone.cs" />
+    <Compile Include="Tree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -79,7 +79,7 @@
     <Content Include="images\snake.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\stone.png">
+    <Content Include="images\tree.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -2,11 +2,11 @@
 
 namespace SnakeGame
 {
-    public class Stone : GameObject
+    public class Tree : GameObject
     {
-        public Stone()
+        public Tree()
         {
-            _image = ResourcesManager.GetInstance().StoneImage;
+            _image = ResourcesManager.GetInstance().TreeImage;
         }
         public override void Render(ConsoleGraphics graphics)
         {

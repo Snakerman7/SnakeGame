@@ -2,7 +2,7 @@
 
 namespace SnakeGame
 {
-    public abstract class GameObject : IGameObject
+    public abstract class GameObject : IRenderObject
     {
         protected ConsoleImage _image;
         public Point Position { get; set; }

@@ -7,10 +7,12 @@ namespace SnakeGame
     {
         private LinkedList<SnakePart> _parts;
         private MoveDirection _direction;
+        private int _partSize;
         public bool ItselfCollision { get; private set; }
 
         public Snake()
         {
+            _partSize = 16;
             ItselfCollision = false;
             _direction = MoveDirection.Right;
             _parts = new LinkedList<SnakePart>();
@@ -28,20 +30,20 @@ namespace SnakeGame
             switch (tailDirection)
             {
                 case MoveDirection.Up:
-                    y += 16;
-                    part = new SnakePart(new Point(x, y), MoveDirection.Up, SnakePartType.Tail, 16);
+                    y += _partSize;
+                    part = new SnakePart(new Point(x, y), MoveDirection.Up, SnakePartType.Tail);
                     break;
                 case MoveDirection.Down:
-                    y -= 16;
-                    part = new SnakePart(new Point(x, y), MoveDirection.Down, SnakePartType.Tail, 16);
+                    y -= _partSize;
+                    part = new SnakePart(new Point(x, y), MoveDirection.Down, SnakePartType.Tail);
                     break;
                 case MoveDirection.Right:
-                    x -= 16;
-                    part = new SnakePart(new Point(x, y), MoveDirection.Right, SnakePartType.Tail, 16);
+                    x -= _partSize;
+                    part = new SnakePart(new Point(x, y), MoveDirection.Right, SnakePartType.Tail);
                     break;
                 default:
-                    x += 16;
-                    part = new SnakePart(new Point(x, y), MoveDirection.Left, SnakePartType.Tail, 16);
+                    x += _partSize;
+                    part = new SnakePart(new Point(x, y), MoveDirection.Left, SnakePartType.Tail);
                     break;
             }
             _parts.Last.Value.Type = SnakePartType.Body;
@@ -101,8 +103,7 @@ namespace SnakeGame
             switch (_direction)
             {
                 case MoveDirection.Up:
-                    dx = 0;
-                    dy = -16;
+                    dy = -_partSize;
                     if (prevMove == MoveDirection.Left)
                     {
                         _parts.First.Value.Type = SnakePartType.BodyLeftUpOrDownRight;
@@ -113,8 +114,7 @@ namespace SnakeGame
                     }
                     break;
                 case MoveDirection.Down:
-                    dx = 0;
-                    dy = 16;
+                    dy = _partSize;
                     if (prevMove == MoveDirection.Left)
                     {
                         _parts.First.Value.Type = SnakePartType.BodyLeftDownOrUpRight;
@@ -125,8 +125,7 @@ namespace SnakeGame
                     }
                     break;
                 case MoveDirection.Right:
-                    dx = 16;
-                    dy = 0;
+                    dx = _partSize;
                     if (prevMove == MoveDirection.Up)
                     {
                         _parts.First.Value.Type = SnakePartType.BodyLeftDownOrUpRight;
@@ -137,8 +136,7 @@ namespace SnakeGame
                     }
                     break;
                 case MoveDirection.Left:
-                    dx = -16;
-                    dy = 0;
+                    dx = -_partSize;
                     if (prevMove == MoveDirection.Up)
                     {
                         _parts.First.Value.Direction = _direction;

@@ -77,9 +77,9 @@ namespace SnakeGame
                     case MenuItemType.HardLevel:
                         MainScene hardLevelScene = new MainScene(_width, _height);
                         hardLevelScene.AddObjectToRandomPosition(new Food());
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < 25; i++)
                         {
-                            hardLevelScene.AddObjectToRandomPosition(new Stone());
+                            hardLevelScene.AddObjectToRandomPosition(new Tree());
                         }
                         engine.ChangeScene(hardLevelScene);
                         break;

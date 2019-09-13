@@ -2,7 +2,7 @@
 
 namespace SnakeGame
 {
-    public interface IGameObject
+    public interface IRenderObject
     {
         void Render(ConsoleGraphics graphics);
 

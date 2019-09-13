@@ -4,24 +4,20 @@ using System.Drawing.Text;
 
 namespace SnakeGame
 {
-    class MenuItem : GameObject
+    class MenuItem : IRenderObject
     {
-        private MenuItemType _type;
-        private string _text;
+        private readonly string _text;
         public bool IsSelected { get; set; }
-
-        public MenuItemType Type
-        {
-            get => _type;
-        }
+        public MenuItemType Type { get; }
+        public Point Position { get; set; }
 
         public MenuItem(MenuItemType type, string text)
         {
-            _type = type;
+            Type = type;
             _text = text;
         }
 
-        public override void Render(ConsoleGraphics graphics)
+        public void Render(ConsoleGraphics graphics)
         {
             if (IsSelected)
             {
@@ -33,9 +29,9 @@ namespace SnakeGame
             }
         }
 
-        public override void Update(GameEngine engine)
+        public void Update(GameEngine engine)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

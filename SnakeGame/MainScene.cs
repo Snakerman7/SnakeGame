@@ -109,7 +109,7 @@ namespace SnakeGame
                             _gui.Scores++;
                         }
                         break;
-                    case Stone s:
+                    case Tree s:
                         if (s.Position.Equals(point))
                             return true;
                         break;

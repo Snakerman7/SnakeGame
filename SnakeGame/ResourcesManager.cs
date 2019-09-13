@@ -15,7 +15,7 @@ namespace SnakeGame
         }
 
         public ConsoleImage SnakeImage { get; private set; }
-        public ConsoleImage StoneImage { get; private set; }
+        public ConsoleImage TreeImage { get; private set; }
         private ResourcesManager()
         {
 
@@ -24,7 +24,7 @@ namespace SnakeGame
         public void LoadResources(ConsoleGraphics graphics)
         {
             SnakeImage = graphics.LoadImage("images/snake.png");
-            StoneImage = graphics.LoadImage("images/stone.png");
+            TreeImage = graphics.LoadImage("images/tree.png");
         }
     }
 }

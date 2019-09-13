@@ -27,7 +27,7 @@ namespace SnakeGame
         public MoveDirection Direction { get; set; }
         public SnakePartType Type { get; set; }
 
-        public SnakePart(Point position = new Point(), MoveDirection dir = MoveDirection.Right, SnakePartType type = SnakePartType.Body, int size = 16)
+        public SnakePart(Point position, MoveDirection dir, SnakePartType type, int size = 16)
         {
             _size = size;
             Position = position;

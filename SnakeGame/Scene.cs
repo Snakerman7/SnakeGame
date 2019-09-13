@@ -2,7 +2,7 @@
 
 namespace SnakeGame
 {
-    public abstract class Scene : IGameObject
+    public abstract class Scene : IRenderObject
     {
         protected bool _isActive = false;
 
