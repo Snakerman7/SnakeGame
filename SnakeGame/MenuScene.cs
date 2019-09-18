@@ -15,15 +15,14 @@ namespace SnakeGame
 
     class MenuScene : Scene
     {
-        private List<MenuItem> _items = new List<MenuItem>();
-        private int _width;
-        private int _height;
+        private readonly List<MenuItem> _items = new List<MenuItem>();
+        private readonly int _width;
+        private readonly int _height;
+        private readonly string _helpText;
         private int _selectedItem;
-        private string _helpText;
-
-        private static bool _isKeyDown_Down;
-        private static bool _isKeyUp_Down;
-        private static bool _isKeyReturn_Down;
+        private bool _isKeyDown_Down;
+        private bool _isKeyUp_Down;
+        private bool _isKeyReturn_Down = true;
 
         public MenuScene(int width, int height, string helpText = "Up or Down for navigate, Enter to choose")
         {
