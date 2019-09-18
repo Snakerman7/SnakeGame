@@ -6,7 +6,7 @@ namespace SnakeGame
     {
         public Tree()
         {
-            _image = ResourcesManager.GetInstance().TreeImage;
+            _image = ResourcesManager.TreeImage;
         }
         public override void Render(ConsoleGraphics graphics)
         {

@@ -62,7 +62,7 @@ namespace SnakeGame
                         engine.NextScene(chooseLevelMenu);
                         break;
                     case MenuItemType.BestScores:
-                        BestScoresScene bestScoresScene = new BestScoresScene(BestScoreManager.GetInstance().GetScores());
+                        BestScoresScene bestScoresScene = new BestScoresScene(BestScoreManager.GetScores());
                         engine.NextScene(bestScoresScene);
                         break;
                     case MenuItemType.Exit:

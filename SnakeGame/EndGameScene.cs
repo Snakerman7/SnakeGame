@@ -24,7 +24,7 @@ namespace SnakeGame
         {
             if (Input.IsKeyDown(Keys.RETURN))
             {
-                BestScoreManager.GetInstance().AddScores(_scores);
+                BestScoreManager.AddScores(_scores);
                 engine.PrevScene();
             }
         }

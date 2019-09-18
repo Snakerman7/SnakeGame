@@ -6,15 +6,9 @@ namespace SnakeGame
     public class BestScoreManager
     {
         private const string FILE_NAME = "best.scores";
-        private static BestScoreManager _instance;
+        private static int[] _bestScores;
 
-        private int[] _bestScores;
-
-        private BestScoreManager()
-        {
-        }
-
-        public int[] GetScores()
+        public static int[] GetScores()
         {
             if (_bestScores == null)
             {
@@ -27,7 +21,7 @@ namespace SnakeGame
             return res;
         }
 
-        public void AddScores(int score)
+        public static void AddScores(int score)
         {
             if (_bestScores == null)
             {
@@ -51,7 +45,7 @@ namespace SnakeGame
             }
         }
 
-        private void LoadScores()
+        private static void LoadScores()
         {
             if (File.Exists(FILE_NAME))
             {
@@ -75,7 +69,7 @@ namespace SnakeGame
             }
         }
 
-        private void SaveScores()
+        private static void SaveScores()
         {
             using (StreamWriter sw = File.CreateText(FILE_NAME))
             {
@@ -84,15 +78,6 @@ namespace SnakeGame
                     sw.WriteLine(_bestScores[i]);
                 }
             }
-        }
-
-        public static BestScoreManager GetInstance()
-        {
-            if (_instance == null)
-            {
-                _instance = new BestScoreManager();
-            }
-            return _instance;
         }
     }
 }

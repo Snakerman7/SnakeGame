@@ -33,7 +33,7 @@ namespace SnakeGame
             Position = position;
             Direction = dir;
             Type = type;
-            _image = ResourcesManager.GetInstance().SnakeImage;
+            _image = ResourcesManager.SnakeImage;
         }
 
         public override void Render(ConsoleGraphics graphics)

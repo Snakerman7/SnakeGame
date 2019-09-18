@@ -17,7 +17,7 @@ namespace SnakeGame
             ConsoleGraphics graphics = new ConsoleGraphics();
 
             GameEngine engine = new GameEngine(graphics);
-            ResourcesManager.GetInstance().LoadResources(graphics);
+            ResourcesManager.LoadResources(graphics);
             MenuScene scene = new MenuScene(graphics.ClientWidth, graphics.ClientHeight);
             scene.AddMenuItems(MenuScene.GetMainMenuItems());
             engine.ChangeScene(scene);
