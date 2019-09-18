@@ -15,9 +15,9 @@ namespace SnakeGame
         {
             for (int i = 0; i < _bestScores.Length; i++)
             {
-                graphics.DrawString($"{i + 1} place   :   {_bestScores[i]}", "Broadway", 0xff000000, 50, i * 50);
+                graphics.DrawString(ResourcesManager.BuildBestScoreItemText(i + 1, _bestScores[i]), ResourcesManager.FontName, ResourcesManager.TextColor, 50, i * 50);
             }
-            graphics.DrawString("Press Esc for come back to main menu", "Broadway", 0xFF000000, 30, graphics.ClientHeight - 30, 8);
+            graphics.DrawString(ResourcesManager.BestScoreSceneHelpText, ResourcesManager.FontName, ResourcesManager.TextColor, 30, graphics.ClientHeight - 30, 8);
         }
 
         public override void Update(GameEngine engine)

@@ -22,11 +22,11 @@ namespace SnakeGame
         {
             if (IsSelected)
             {
-                graphics.DrawString(_text, "Broadway", 0xff000000, Position.X, Position.Y, 18);
+                graphics.DrawString(_text, ResourcesManager.FontName, 0xff000000, Position.X, Position.Y, 18);
             }
             else
             {
-                graphics.DrawString(_text, "Broadway", 0xffaaaaaa, Position.X, Position.Y);
+                graphics.DrawString(_text, ResourcesManager.FontName, 0xffaaaaaa, Position.X, Position.Y);
             }
         }
 

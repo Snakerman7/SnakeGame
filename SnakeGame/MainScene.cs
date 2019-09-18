@@ -35,7 +35,7 @@ namespace SnakeGame
 
         public override void Render(ConsoleGraphics graphics)
         {
-            graphics.FillRectangle(0xff155c12, 0, 0, _gameFieldWidth, _gameFieldHeight);
+            graphics.FillRectangle(ResourcesManager.MainSceneBackgroundColor, 0, 0, _gameFieldWidth, _gameFieldHeight);
             foreach (var obj in _objects)
             {
                 obj.Render(graphics);
@@ -56,12 +56,12 @@ namespace SnakeGame
             }
             if (_player.ItselfCollision || CheckCollisionWithObjects() || CheckCollisionWithBorders())
             {
-                EndGameScene scene = new EndGameScene("You lose", _gui.Scores);
+                EndGameScene scene = new EndGameScene(ResourcesManager.LoseText, _gui.Scores);
                 engine.ChangeScene(scene);
             }
             if (_gui.Scores == SCORES_FOR_WIN)
             {
-                EndGameScene scene = new EndGameScene("You win", _gui.Scores);
+                EndGameScene scene = new EndGameScene(ResourcesManager.WinText, _gui.Scores);
                 engine.ChangeScene(scene);
             }
         }

@@ -15,8 +15,8 @@ namespace SnakeGame
 
         public override void Render(ConsoleGraphics graphics)
         {
-            graphics.DrawString($"Scores: {Scores}", "Broadway", 0xff000000, Position.X + 20, Position.Y + 5);
-            graphics.DrawString("Up, Down, Left, Right for control snake", "Broadway", 0xff000000, Position.X + 250, Position.Y + 10, 8);
+            graphics.DrawString(ResourcesManager.BuildGUIScoreText(Scores), ResourcesManager.FontName, ResourcesManager.TextColor, Position.X + 20, Position.Y + 5);
+            graphics.DrawString(ResourcesManager.GUIHelpText, ResourcesManager.FontName, ResourcesManager.TextColor, Position.X + 250, Position.Y + 10, 8);
         }
 
         public override void Update(GameEngine engine)
