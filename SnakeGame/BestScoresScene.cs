@@ -4,7 +4,7 @@ namespace SnakeGame
 {
     public class BestScoresScene : Scene
     {
-        private int[] _bestScores;
+        private readonly int[] _bestScores;
 
         public BestScoresScene(int[] scores)
         {

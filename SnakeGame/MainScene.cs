@@ -7,12 +7,12 @@ namespace SnakeGame
     public class MainScene : Scene
     {
         private const int SCORES_FOR_WIN = 500;
-        private int _gameFieldWidth;
-        private int _gameFieldHeight;
-        private Snake _player;
-        private GUI _gui;
-        private List<GameObject> _objects = new List<GameObject>();
-        private Random _numberGenerator = new Random();
+        private readonly int _gameFieldWidth;
+        private readonly int _gameFieldHeight;
+        private readonly Snake _player;
+        private readonly GUI _gui;
+        private readonly List<GameObject> _objects = new List<GameObject>();
+        private readonly Random _numberGenerator = new Random();
 
         public MainScene(int width, int heigth)
         {
@@ -123,9 +123,9 @@ namespace SnakeGame
             do
             {
                 int x = _numberGenerator.Next(_gameFieldWidth);
-                x = x - x % 16;
+                x -= x % 16;
                 int y = _numberGenerator.Next(_gameFieldHeight);
-                y = y - y % 16;
+                y -= y % 16;
                 p = new Point(x, y);
             } while (_player.CheckCollision(p) || CheckPoint(p));
             return p;

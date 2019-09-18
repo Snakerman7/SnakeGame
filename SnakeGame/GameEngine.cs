@@ -6,9 +6,9 @@ namespace SnakeGame
 {
     public class GameEngine
     {
-        private ConsoleGraphics _graphics;
+        private readonly ConsoleGraphics _graphics;
         private Scene _curScene;
-        private Stack<Scene> _prevScenes = new Stack<Scene>();
+        private readonly Stack<Scene> _prevScenes = new Stack<Scene>();
 
         public GameEngine(ConsoleGraphics graphics)
         {

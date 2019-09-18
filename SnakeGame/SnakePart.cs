@@ -23,7 +23,7 @@ namespace SnakeGame
 
     public class SnakePart : GameObject
     {
-        private int _size;
+        private readonly int _size;
         public MoveDirection Direction { get; set; }
         public SnakePartType Type { get; set; }
 

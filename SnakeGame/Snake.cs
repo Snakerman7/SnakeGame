@@ -5,9 +5,9 @@ namespace SnakeGame
 {
     public class Snake : GameObject
     {
-        private LinkedList<SnakePart> _parts;
+        private readonly LinkedList<SnakePart> _parts;
         private MoveDirection _direction;
-        private int _partSize;
+        private readonly int _partSize;
         public bool ItselfCollision { get; private set; }
 
         public Snake()
