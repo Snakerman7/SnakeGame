@@ -4,8 +4,8 @@ namespace SnakeGame
 {
     public class EndGameScene : Scene
     {
-        private string _text;
-        private int _scores;
+        private readonly string _text;
+        private readonly int _scores;
 
         public EndGameScene(string text, int scores)
         {
