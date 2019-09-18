@@ -125,18 +125,22 @@ namespace SnakeGame
 
         public static List<MenuItem> GetMainMenuItems()
         {
-            List<MenuItem> items = new List<MenuItem>();
-            items.Add(new MenuItem(MenuItemType.StartNewGame, "Start New Game") { IsSelected = true, Position = new Point(50, 50) });
-            items.Add(new MenuItem(MenuItemType.BestScores, "Best Scores") { Position = new Point(50, 100) });
-            items.Add(new MenuItem(MenuItemType.Exit, "Exit") { Position = new Point(50, 150) });
+            List<MenuItem> items = new List<MenuItem>
+            {
+                new MenuItem(MenuItemType.StartNewGame, "Start New Game", new Point(50, 50)) { IsSelected = true },
+                new MenuItem(MenuItemType.BestScores, "Best Scores", new Point(50, 100)),
+                new MenuItem(MenuItemType.Exit, "Exit", new Point(50, 150))
+            };
             return items;
         }
 
         public static List<MenuItem> GetChooseLevelItems()
         {
-            List<MenuItem> items = new List<MenuItem>();
-            items.Add(new MenuItem(MenuItemType.EasyLevel, "Easy Level") { IsSelected = true, Position = new Point(50, 50) });
-            items.Add(new MenuItem(MenuItemType.HardLevel, "Hard Level") { Position = new Point(50, 100) });
+            List<MenuItem> items = new List<MenuItem>
+            {
+                new MenuItem(MenuItemType.EasyLevel, "Easy Level", new Point(50, 50)) { IsSelected = true },
+                new MenuItem(MenuItemType.HardLevel, "Hard Level", new Point(50, 100))
+            };
             return items;
         }
     }

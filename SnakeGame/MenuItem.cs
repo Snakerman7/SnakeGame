@@ -9,12 +9,13 @@ namespace SnakeGame
         private readonly string _text;
         public bool IsSelected { get; set; }
         public MenuItemType Type { get; }
-        public Point Position { get; set; }
+        public Point Position { get; }
 
-        public MenuItem(MenuItemType type, string text)
+        public MenuItem(MenuItemType type, string text, Point position)
         {
             Type = type;
             _text = text;
+            Position = position;
         }
 
         public void Render(ConsoleGraphics graphics)
