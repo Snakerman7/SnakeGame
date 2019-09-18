@@ -52,25 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BestScoreManager.cs" />
-    <Compile Include="BestScoresScene.cs" />
-    <Compile Include="EndGameScene.cs" />
-    <Compile Include="Food.cs" />
-    <Compile Include="GameObject.cs" />
-    <Compile Include="GUI.cs" />
-    <Compile Include="MenuScene.cs" />
-    <Compile Include="MenuItem.cs" />
-    <Compile Include="ResourcesManager.cs" />
-    <Compile Include="Scene.cs" />
-    <Compile Include="GameEngine.cs" />
-    <Compile Include="IRenderObject.cs" />
-    <Compile Include="MainScene.cs" />
-    <Compile Include="Point.cs" />
+    <Compile Include="common\BestScoreManager.cs" />
+    <Compile Include="scenes\BestScoresScene.cs" />
+    <Compile Include="scenes\EndGameScene.cs" />
+    <Compile Include="objects\Food.cs" />
+    <Compile Include="objects\GameObject.cs" />
+    <Compile Include="scenes\GUI.cs" />
+    <Compile Include="scenes\MenuScene.cs" />
+    <Compile Include="objects\MenuItem.cs" />
+    <Compile Include="common\ResourcesManager.cs" />
+    <Compile Include="scenes\Scene.cs" />
+    <Compile Include="engine\GameEngine.cs" />
+    <Compile Include="engine\IRenderObject.cs" />
+    <Compile Include="scenes\MainScene.cs" />
+    <Compile Include="common\Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Snake.cs" />
-    <Compile Include="SnakePart.cs" />
-    <Compile Include="Tree.cs" />
+    <Compile Include="objects\Snake.cs" />
+    <Compile Include="objects\SnakePart.cs" />
+    <Compile Include="objects\Tree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -83,5 +83,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
