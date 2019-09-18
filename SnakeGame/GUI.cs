@@ -4,11 +4,12 @@ namespace SnakeGame
 {
     public class GUI : Scene
     {
-        public Point Position { get; set; }
+        public Point Position { get; }
         public int Scores { get; set; }
 
-        public GUI()
+        public GUI(Point position)
         {
+            Position = position;
             Scores = 0;
         }
 

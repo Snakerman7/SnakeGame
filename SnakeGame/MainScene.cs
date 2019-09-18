@@ -17,10 +17,9 @@ namespace SnakeGame
         public MainScene(int width, int heigth)
         {
             _player = new Snake();
-            _gui = new GUI();
             _gameFieldHeight = heigth - (heigth % 16) - 32;
             _gameFieldWidth = width - width % 16;
-            _gui.Position = new Point(0, _gameFieldHeight);
+            _gui = new GUI(new Point(0, _gameFieldHeight));
         }
 
         public virtual void AddObject(GameObject obj)
