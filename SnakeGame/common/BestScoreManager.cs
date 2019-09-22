@@ -3,7 +3,7 @@ using System.IO;
 
 namespace SnakeGame
 {
-    public class BestScoreManager
+    public static class BestScoreManager
     {
         private const string FILE_NAME = "best.scores";
         private static int[] _bestScores;
