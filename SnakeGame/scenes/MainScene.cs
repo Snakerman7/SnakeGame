@@ -7,8 +7,7 @@ namespace SnakeGame
     public class MainScene : Scene
     {
         private const int SCORES_FOR_WIN = 500;
-        private readonly int _gameFieldWidth;
-        private readonly int _gameFieldHeight;
+        private readonly Size _gameFieldSize;
         private readonly Snake _player;
         private readonly GUI _gui;
         private readonly List<GameObject> _objects = new List<GameObject>();
@@ -17,9 +16,8 @@ namespace SnakeGame
         public MainScene(int width, int heigth)
         {
             _player = new Snake();
-            _gameFieldHeight = heigth - (heigth % 16) - 32;
-            _gameFieldWidth = width - width % 16;
-            _gui = new GUI(new Point(0, _gameFieldHeight));
+            _gameFieldSize = new Size(heigth - (heigth % 16) - 32, width - width % 16);
+            _gui = new GUI(new Point(0, _gameFieldSize.Height));
         }
 
         public virtual void AddObject(GameObject obj)
@@ -35,7 +33,7 @@ namespace SnakeGame
 
         public override void Render(ConsoleGraphics graphics)
         {
-            graphics.FillRectangle(ResourcesManager.MainSceneBackgroundColor, 0, 0, _gameFieldWidth, _gameFieldHeight);
+            graphics.FillRectangle(ResourcesManager.MainSceneBackgroundColor, 0, 0, _gameFieldSize.Width, _gameFieldSize.Height);
             foreach (var obj in _objects)
             {
                 obj.Render(graphics);
@@ -69,11 +67,11 @@ namespace SnakeGame
         private bool CheckCollisionWithBorders()
         {
             var point = _player.Position;
-            if (point.X < 0 || point.X >= _gameFieldWidth)
+            if (point.X < 0 || point.X >= _gameFieldSize.Width)
             {
                 return true;
             }
-            if (point.Y < 0 || point.Y >= _gameFieldHeight)
+            if (point.Y < 0 || point.Y >= _gameFieldSize.Height)
             {
                 return true;
             }
@@ -122,9 +120,9 @@ namespace SnakeGame
             Point p;
             do
             {
-                int x = _numberGenerator.Next(_gameFieldWidth);
+                int x = _numberGenerator.Next(_gameFieldSize.Width);
                 x -= x % 16;
-                int y = _numberGenerator.Next(_gameFieldHeight);
+                int y = _numberGenerator.Next(_gameFieldSize.Height);
                 y -= y % 16;
                 p = new Point(x, y);
             } while (_player.CheckCollision(p) || CheckPoint(p));

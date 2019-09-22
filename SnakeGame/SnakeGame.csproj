@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\BestScoreManager.cs" />
+    <Compile Include="common\Size.cs" />
     <Compile Include="scenes\BestScoresScene.cs" />
     <Compile Include="scenes\EndGameScene.cs" />
     <Compile Include="objects\Food.cs" />
