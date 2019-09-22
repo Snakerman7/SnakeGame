@@ -15,8 +15,8 @@ namespace SnakeGame
 
         public override void Render(ConsoleGraphics graphics)
         {
-            graphics.DrawString(ResourcesManager.BuildGUIScoreText(Scores), ResourcesManager.FontName, ResourcesManager.TextColor, Position.X + 20, Position.Y + 5);
-            graphics.DrawString(ResourcesManager.GUIHelpText, ResourcesManager.FontName, ResourcesManager.TextColor, Position.X + 250, Position.Y + 10, 8);
+            graphics.DrawString(ResourcesManager.StringResources.BuildGUIScoreText(Scores), ResourcesManager.StringResources.FontName, ResourcesManager.ColorResources.TextColor, Position.X + 20, Position.Y + 5);
+            graphics.DrawString(ResourcesManager.StringResources.GUIHelpText, ResourcesManager.StringResources.FontName, ResourcesManager.ColorResources.TextColor, Position.X + 250, Position.Y + 10, 8);
         }
 
         public override void Update(GameEngine engine)

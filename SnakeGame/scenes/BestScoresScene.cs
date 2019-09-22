@@ -15,9 +15,9 @@ namespace SnakeGame
         {
             for (int i = 0; i < _bestScores.Length; i++)
             {
-                graphics.DrawString(ResourcesManager.BuildBestScoreItemText(i + 1, _bestScores[i]), ResourcesManager.FontName, ResourcesManager.TextColor, 50, i * 50);
+                graphics.DrawString(ResourcesManager.StringResources.BuildBestScoreItemText(i + 1, _bestScores[i]), ResourcesManager.StringResources.FontName, ResourcesManager.ColorResources.TextColor, 50, i * 50);
             }
-            graphics.DrawString(ResourcesManager.BestScoreSceneHelpText, ResourcesManager.FontName, ResourcesManager.TextColor, 30, graphics.ClientHeight - 30, 8);
+            graphics.DrawString(ResourcesManager.StringResources.BestScoreSceneHelpText, ResourcesManager.StringResources.FontName, ResourcesManager.ColorResources.TextColor, 30, graphics.ClientHeight - 30, 8);
         }
 
         public override void Update(GameEngine engine)

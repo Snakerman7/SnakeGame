@@ -24,7 +24,7 @@ namespace SnakeGame
         private bool _isKeyUp_Down;
         private bool _isKeyReturn_Down = true;
 
-        public MenuScene(int width, int height, string helpText = ResourcesManager.MainMenuHelpText)
+        public MenuScene(int width, int height, string helpText = ResourcesManager.StringResources.MainMenuHelpText)
         {
             _selectedItem = 0;
             _width = width;
@@ -46,7 +46,7 @@ namespace SnakeGame
             {
                 item.Render(graphics);
             }
-            graphics.DrawString(_helpText, ResourcesManager.FontName, ResourcesManager.TextColor, 30, _height - 30, 8);
+            graphics.DrawString(_helpText, ResourcesManager.StringResources.FontName, ResourcesManager.ColorResources.TextColor, 30, _height - 30, 8);
         }
 
         public override void Update(GameEngine engine)
@@ -57,7 +57,7 @@ namespace SnakeGame
                 switch (type)
                 {
                     case MenuItemType.StartNewGame:
-                        MenuScene chooseLevelMenu = new MenuScene(_width, _height, ResourcesManager.ChooseLevelMenuHelpText);
+                        MenuScene chooseLevelMenu = new MenuScene(_width, _height, ResourcesManager.StringResources.ChooseLevelMenuHelpText);
                         chooseLevelMenu.AddMenuItems(MenuScene.GetChooseLevelItems());
                         engine.NextScene(chooseLevelMenu);
                         break;
@@ -126,9 +126,9 @@ namespace SnakeGame
         {
             List<MenuItem> items = new List<MenuItem>
             {
-                new MenuItem(MenuItemType.StartNewGame, ResourcesManager.MenuStartGameText, new Point(50, 50)) { IsSelected = true },
-                new MenuItem(MenuItemType.BestScores, ResourcesManager.MenuBestScoresText, new Point(50, 100)),
-                new MenuItem(MenuItemType.Exit, ResourcesManager.MenuExitText, new Point(50, 150))
+                new MenuItem(MenuItemType.StartNewGame, ResourcesManager.StringResources.MenuStartGameText, new Point(50, 50)) { IsSelected = true },
+                new MenuItem(MenuItemType.BestScores, ResourcesManager.StringResources.MenuBestScoresText, new Point(50, 100)),
+                new MenuItem(MenuItemType.Exit, ResourcesManager.StringResources.MenuExitText, new Point(50, 150))
             };
             return items;
         }
@@ -137,8 +137,8 @@ namespace SnakeGame
         {
             List<MenuItem> items = new List<MenuItem>
             {
-                new MenuItem(MenuItemType.EasyLevel, ResourcesManager.MenuEasyLevelText, new Point(50, 50)) { IsSelected = true },
-                new MenuItem(MenuItemType.HardLevel, ResourcesManager.MenuHardLevelText, new Point(50, 100))
+                new MenuItem(MenuItemType.EasyLevel, ResourcesManager.StringResources.MenuEasyLevelText, new Point(50, 50)) { IsSelected = true },
+                new MenuItem(MenuItemType.HardLevel, ResourcesManager.StringResources.MenuHardLevelText, new Point(50, 100))
             };
             return items;
         }

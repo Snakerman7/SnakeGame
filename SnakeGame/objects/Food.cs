@@ -6,7 +6,7 @@ namespace SnakeGame
     {
         public Food()
         {
-            _image = ResourcesManager.SnakeImage;
+            _image = ResourcesManager.ImageResources.SnakeImage;
         }
 
         public override void Render(ConsoleGraphics graphics)

@@ -56,7 +56,7 @@ namespace SnakeGame
                 _curScene.Update(this);
 
                 // clearing screen before painting new frame
-                _graphics.FillRectangle(ResourcesManager.MenuBackgroundColor, 0, 0, _graphics.ClientWidth, _graphics.ClientHeight);
+                _graphics.FillRectangle(ResourcesManager.ColorResources.MenuBackgroundColor, 0, 0, _graphics.ClientWidth, _graphics.ClientHeight);
                 _curScene.Render(_graphics);
 
                 // double buffering technique is used
