@@ -1,6 +1,8 @@
 ﻿using NConsoleGraphics;
+using SnakeGame.Engine;
+using SnakeGame.Utils;
 
-namespace SnakeGame
+namespace SnakeGame.Scenes
 {
     public class BestScoresScene : Scene
     {

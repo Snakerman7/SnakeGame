@@ -1,8 +1,12 @@
 ﻿using System;
 using GenericCollections;
 using NConsoleGraphics;
+using SnakeGame.Objects;
+using SnakeGame.Engine;
+using SnakeGame.Common;
+using SnakeGame.Utils;
 
-namespace SnakeGame
+namespace SnakeGame.Scenes
 {
     enum MenuItemType
     {

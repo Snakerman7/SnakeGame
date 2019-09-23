@@ -1,7 +1,9 @@
 ﻿using GenericCollections;
 using NConsoleGraphics;
+using SnakeGame.Engine;
+using SnakeGame.Common;
 
-namespace SnakeGame
+namespace SnakeGame.Objects
 {
     public class Snake : GameObject
     {

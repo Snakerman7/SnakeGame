@@ -1,6 +1,6 @@
 ﻿using NConsoleGraphics;
 
-namespace SnakeGame
+namespace SnakeGame.Utils
 {
     public static class ResourcesManager
     {

@@ -1,6 +1,9 @@
 ﻿using NConsoleGraphics;
+using SnakeGame.Engine;
+using SnakeGame.Common;
+using SnakeGame.Utils;
 
-namespace SnakeGame
+namespace SnakeGame.Scenes
 {
     public class GUI : Scene
     {

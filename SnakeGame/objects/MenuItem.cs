@@ -1,8 +1,10 @@
 ﻿using NConsoleGraphics;
-using System;
-using System.Drawing.Text;
+using SnakeGame.Scenes;
+using SnakeGame.Engine;
+using SnakeGame.Common;
+using SnakeGame.Utils;
 
-namespace SnakeGame
+namespace SnakeGame.Objects
 {
     class MenuItem : IRenderObject
     {

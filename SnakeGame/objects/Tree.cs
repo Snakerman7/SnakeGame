@@ -1,6 +1,8 @@
 ﻿using NConsoleGraphics;
+using SnakeGame.Engine;
+using SnakeGame.Utils;
 
-namespace SnakeGame
+namespace SnakeGame.Objects
 {
     public class Tree : GameObject
     {

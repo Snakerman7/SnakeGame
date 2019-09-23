@@ -1,6 +1,8 @@
 ﻿using NConsoleGraphics;
+using SnakeGame.Engine;
+using SnakeGame.Common;
 
-namespace SnakeGame
+namespace SnakeGame.Objects
 {
     public abstract class GameObject : IRenderObject
     {

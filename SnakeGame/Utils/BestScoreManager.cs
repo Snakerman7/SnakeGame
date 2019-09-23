@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace SnakeGame
+namespace SnakeGame.Utils
 {
     public static class BestScoreManager
     {

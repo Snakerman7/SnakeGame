@@ -1,8 +1,10 @@
 ﻿using GenericCollections;
 using NConsoleGraphics;
 using System.Threading;
+using SnakeGame.Scenes;
+using SnakeGame.Utils;
 
-namespace SnakeGame
+namespace SnakeGame.Engine
 {
     public class GameEngine
     {

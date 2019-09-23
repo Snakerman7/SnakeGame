@@ -1,8 +1,12 @@
 ﻿using NConsoleGraphics;
 using System;
 using System.Collections.Generic;
+using SnakeGame.Objects;
+using SnakeGame.Engine;
+using SnakeGame.Common;
+using SnakeGame.Utils;
 
-namespace SnakeGame
+namespace SnakeGame.Scenes
 {
     public class MainScene : Scene
     {

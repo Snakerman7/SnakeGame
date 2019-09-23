@@ -1,5 +1,8 @@
 ﻿using NConsoleGraphics;
 using System;
+using SnakeGame.Scenes;
+using SnakeGame.Engine;
+using SnakeGame.Utils;
 
 namespace SnakeGame
 {
