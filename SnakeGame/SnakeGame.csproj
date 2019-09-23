@@ -53,25 +53,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Utils\BestScoreManager.cs" />
-    <Compile Include="Common\Size.cs" />
-    <Compile Include="Scenes\BestScoresScene.cs" />
-    <Compile Include="Scenes\EndGameScene.cs" />
-    <Compile Include="Objects\Food.cs" />
-    <Compile Include="Objects\GameObject.cs" />
-    <Compile Include="Scenes\GUI.cs" />
-    <Compile Include="Scenes\MenuScene.cs" />
-    <Compile Include="Objects\MenuItem.cs" />
+    <Compile Include="Size.cs" />
+    <Compile Include="BestScoresScene.cs" />
+    <Compile Include="EndGameScene.cs" />
+    <Compile Include="Food.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="GUI.cs" />
+    <Compile Include="MenuScene.cs" />
+    <Compile Include="MenuItem.cs" />
     <Compile Include="Utils\ResourcesManager.cs" />
-    <Compile Include="Scenes\Scene.cs" />
-    <Compile Include="Engine\GameEngine.cs" />
-    <Compile Include="Engine\IRenderObject.cs" />
-    <Compile Include="Scenes\MainScene.cs" />
-    <Compile Include="Common\Point.cs" />
+    <Compile Include="Scene.cs" />
+    <Compile Include="GameEngine.cs" />
+    <Compile Include="IRenderObject.cs" />
+    <Compile Include="MainScene.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Objects\Snake.cs" />
-    <Compile Include="Objects\SnakePart.cs" />
-    <Compile Include="Objects\Tree.cs" />
+    <Compile Include="Snake.cs" />
+    <Compile Include="SnakePart.cs" />
+    <Compile Include="Tree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
